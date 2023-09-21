@@ -4,8 +4,4 @@ export default defineNuxtConfig({
   css: ["@/assets/scss/CollorPallete.scss"],
   components: [{path: '@/components', pathPrefix: false}],
   modules: ['@pinia/nuxt'],
-  imports: {
-    autoImport: true,
-    global: true,
-  }
 })
