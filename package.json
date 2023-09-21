@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@appwrite.io/pink": "^0.0.6-rc.15",
+    "@pinia/nuxt": "^0.4.11",
     "axios": "^1.5.0"
   }
 }
