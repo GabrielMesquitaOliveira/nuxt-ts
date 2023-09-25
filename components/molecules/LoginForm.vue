@@ -1,8 +1,8 @@
 <template>
    <form class="login-form box radioborder">
       <h1 class="heading-level-1">Seja bem-vindo</h1>
-      <EmailInput v-model="emailInput"/>
-      <PasswordInput v-model="passwordInput"/>
+      <EmailInput v-model="emailInput" @type-mail="receiveMail"/>
+      <PasswordInput v-model="passwordInput" @type-pass="receivePass"/>
       <button @click="login" class="button u-width-full-line radioborder">logar como savio</button>
       <p v-if="user.name && user.password">{{ user.name }} e {{ user.password }}</p>
     </form>
@@ -39,6 +39,12 @@ export default defineComponent({
         this.setUser(typedUser);
         this.generateTenantId();
       },
+      receivePass(pass: string) {
+        this.passwordInput = pass
+      },
+      receiveMail(mail: string) {
+        this.emailInput = mail
+      }
     },
 })
 </script>

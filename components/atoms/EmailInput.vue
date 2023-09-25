@@ -1,35 +1,27 @@
 <template>
-   <div>
-      <p>Email</p>
-      <input type="email" class="input email radioborder" v-model="inputValue">
-   </div>
+  <div>
+    <p>Email</p>
+    <input
+      type="email"
+      class="input email radioborder"
+      v-model="inputModel"
+      @change="$emit('typeMail', inputModel)"
+    />
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import useUserStore from '~/store/user'
-import { mapState } from 'pinia'
+  import { defineComponent } from 'vue'
 
-export default defineComponent({
-   name: "EmailInput",
-   data() {
+  export default defineComponent({
+    name: 'EmailInput',
+    emits: ['typeMail'],
+    data() {
       return {
-         inputValue: String
+        inputModel: '',
       }
-   },
-   computed: {
-      ...mapState(useUserStore,{
-         myOwnName: 'user',
-         user: (store) => store.user,
-         setUser: (store) => store.setUser
-      })
-   },
-   methods: {
-      
-   }
-})
+    },
+  })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
