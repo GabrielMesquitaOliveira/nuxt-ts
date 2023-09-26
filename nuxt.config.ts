@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   css: [
     '@appwrite.io/pink/dist/pink.css', 
     '@appwrite.io/pink-icons/dist/icon.css', 
+    '@/assets/scss/CollorPallete.scss'
   ],
   components: [{path: '@/components', pathPrefix: false}],
   modules: ['@pinia/nuxt'],
