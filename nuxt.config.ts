@@ -10,7 +10,8 @@ export default defineNuxtConfig({
   css: [
     '@appwrite.io/pink/dist/pink.css', 
     '@appwrite.io/pink-icons/dist/icon.css', 
-    '@/assets/scss/CollorPallete.scss'
+    '@/assets/scss/CollorPallete.scss',
+    '@/assets/css/fonts.css'
   ],
   components: [{ path: '@/components', pathPrefix: false }],
   modules: ['@pinia/nuxt'],
