@@ -1,4 +1,4 @@
-import { defineStore } from "pinia"
+import { defineStore } from 'pinia'
 
 interface IdropDown {
   id: string
@@ -39,11 +39,12 @@ const useDropdownStore = defineStore('dropdowns', {
           body: JSON.stringify(config),
         })
           .then((response: any) => response.json())
-          .then((data) => data.results)
+          .then((data) => data.results);
+        console.log(options)
         this.dropDowns
           .find((dropdown) => dropdown.id === id)
           ?.options.push(options)
-      }
+      };
     },
     getDropDown(id: string) {
       return this.getAllDropDowns.find((dropdown) => dropdown.id === id)

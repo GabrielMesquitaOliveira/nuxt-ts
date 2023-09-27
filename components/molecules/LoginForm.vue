@@ -49,15 +49,6 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang="scss">
-  .radioborder {
-    border-radius: 0.5rem; 
-  }
-  button {
-    background-color: primary-200;
-  }
-  form.login-form {
-    width: 25rem;
-    box-shadow: 0.5px 0.5px 8px 0.5px rgb(140, 140, 140);
-  }
+<style lang="css">
+  
 </style>

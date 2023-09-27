@@ -11,6 +11,7 @@
  <script lang="ts">
    import { defineComponent } from 'vue'
    import useDropdownStore from '~/store/dropdowns'
+   import useUserStore from '~/store/user'
    import { mapActions, mapState } from 'pinia'
  
    export default defineComponent({
@@ -25,7 +26,12 @@
          typedCpf: ''
        }
      },
-     computed: {},
+     computed: {
+      ...mapState(useUserStore,{
+        myOwnName: 'user',
+        tenantID: (store)=>store.getUser.tenantId
+      })
+     },
      methods: {
        ...mapActions(useDropdownStore, [
          'getDropDown',
@@ -36,7 +42,7 @@
          let cpf: number | void = this.convertCpf(this.typedCpf)
          if (typeof cpf != 'number') {
          } else if (this.checkCpf(cpf)) {
-           
+           this.placeOptions();
          }
        },
        convertCpf(cpf: string): number | void {
@@ -64,7 +70,10 @@
          }
        },
        placeOptions() {
-          return this.getOptions('marcas')
+          return this.setOptions('marcas',{
+            tenantID: this.tenantID,
+            tipoProduto: 'CARRO'
+          })
        }
      },
    })
