@@ -34,6 +34,7 @@
     methods: {
       ...mapActions(useUserStore, ['setUser', 'generateTenantId']),
       login() {
+        event?.preventDefault();
         const typedUser = {
           name: this.emailInput,
           password: this.passwordInput,
