@@ -18,6 +18,9 @@
 
 <style scoped>
   .step-form-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
     width: 50rem;
     background-color: #ffffff;
     padding: 2rem 4rem;

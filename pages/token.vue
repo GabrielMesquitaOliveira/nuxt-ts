@@ -1,8 +1,13 @@
 <template>
   <div class="token-body">
     <NuxtLayout name="steps-layout" stepTitle="Nova ficha" :stepCount=1 >
-      <input type="text" v-model="typedCpf" />
-      <button @click="generateToken">generate token</button>
+      <p class="page-inform">
+        para comerçarmos informe o CPF do cliente
+      </p>
+      <input type="text" v-model="typedCpf" placeholder="000.000.000-00"/>
+      <button @click="generateToken" class="button u-width-full-line">
+        <span class="text">Continuar</span>
+      </button>
       <div></div>
     </NuxtLayout>
   </div>
@@ -85,5 +90,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .button {
+    background-color: #159947;
+    border: none;
+    display: flex;
+    justify-content: center;
   }
 </style>
