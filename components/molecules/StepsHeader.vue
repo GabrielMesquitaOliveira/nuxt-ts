@@ -1,7 +1,7 @@
 <template>
-  <div class="step-form-body">
-    <StepsHeader :step-count="stepCount" :step-title="stepTitle" />
-    <slot />
+  <div>
+    <h2 class="step-title heading-level-2">{{ stepTitle }}</h2>
+    <StepBar :step="stepCount" />
   </div>
 </template>
 
@@ -17,9 +17,7 @@
 </script>
 
 <style scoped>
-  .step-form-body {
-    width: 50rem;
-    background-color: #ffffff;
-    padding: 2rem 4rem;
+  div > h2.step-title {
+    color: #159947;
   }
 </style>
