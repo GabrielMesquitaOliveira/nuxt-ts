@@ -40,7 +40,6 @@ const useDropdownStore = defineStore('dropdowns', {
         })
           .then((response: any) => response.json())
           .then((data) => data.results);
-        console.log(options)
         this.dropDowns
           .find((dropdown) => dropdown.id === id)
           ?.options.push(options)

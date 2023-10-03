@@ -25,7 +25,7 @@ const useUserStore = defineStore('user', {
             body: this.user
          }).then((response: any)=>response.tenantID);
          if (this.user.tenantId) {
-            navigateTo('/token')
+            navigateTo('/simulation')
             //TODO: procurar um método melhor para o navigateTo();
          }
       }
