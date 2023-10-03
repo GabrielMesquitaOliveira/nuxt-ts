@@ -1,7 +1,7 @@
 <template>
    <div class="token-body">
      <NuxtLayout name="steps-layout" stepTitle="Nova ficha" :stepCount="1">
-       <StepOneForm/>
+       <router-view></router-view>
      </NuxtLayout>
    </div>
  </template>
