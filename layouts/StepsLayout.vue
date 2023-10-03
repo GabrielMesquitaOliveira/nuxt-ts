@@ -1,6 +1,6 @@
 <template>
   <div class="step-form-body">
-    <StepsHeader :step-count="stepCount" :step-title="stepTitle" />
+    <StepsHeader :step-count="stepCount" :step-title="stepTitle" /> 
     <slot />
   </div>
 </template>

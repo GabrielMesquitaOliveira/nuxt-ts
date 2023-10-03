@@ -131,7 +131,6 @@
   input[type='radio']:checked + label {
     background-color: #1599480b;
   }
-
   label > img.label-icon {
     width: 2rem;
     height: 2rem;
