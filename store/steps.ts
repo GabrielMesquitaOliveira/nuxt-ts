@@ -1,37 +1,56 @@
 import { defineStore } from 'pinia';
+interface Istep {
+   count: number,
+   id: string,
+   filled: boolean
+}
 
-export const usestepsStore = defineStore('steps', {
+export const useStepsStore = defineStore('steps', {
    state: () => ({
       steps: [
          {
             count: 1,
-            title: 'Nova ficha'
+            id: 'Nova ficha',
+            filled: false
          },
          {
             count: 2,
-            title: 'Dados da simulação'
+            id: 'Dados da simulação',
+            filled: false
          }
-      ],
-      currentStep: 1
+      ] as Array<Istep>,
+      currentStepCount: 1
    }),
    getters: {
-      getCurrentStep(): number {
-         return this.currentStep
+      getCurrentStep(): Istep {
+         return this.steps[this.currentStepCount - 1]
       },
-      getSteps():Array<object> {
+      getCurrentStepCount(): number {
+         return this.getCurrentStep.count
+      },
+      getCurrentStepId(): string {
+         return this.getCurrentStep.id
+      },
+      getSteps():Array<Istep> {
          return this.steps
       }
    },
    actions: {
+      fillStep(index:number) {
+         this.steps[index].filled = true;
+      },
+      unFillStep(index:number) {
+         this.steps[index].filled = false;
+      },
       nextStep() {
-         navigateTo('/')
-         if(this.currentStep == this.steps.length) {
-            this.currentStep = 1;
-         } else if (this.currentStep < this.steps.length) {
-            this.currentStep++
+         if(this.currentStepCount == this.steps.length && !this.getCurrentStep.filled) {
+            this.currentStepCount = 1;
+         } else if (this.currentStepCount < this.steps.length) {
+            this.currentStepCount++
          } else {
             window.alert("erro no contador de passos, voltando para a tela inicial...");
-            this.currentStep = 1;
+            this.steps.forEach((step,index)=>this.unFillStep(index));
+            this.currentStepCount = 1;
          }
       }
    },

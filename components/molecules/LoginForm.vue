@@ -39,7 +39,7 @@
           name: this.emailInput,
           password: this.passwordInput,
         }
-        console.log(typedUser)
+          
         this.setUser(typedUser)
         this.generateTenantId()
       },

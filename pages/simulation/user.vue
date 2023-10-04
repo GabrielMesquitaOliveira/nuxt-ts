@@ -1,15 +1,15 @@
 <template>
-  <StepOneForm/>
+  <div class="user-body">
+    <NuxtLayout name="steps-layout">
+      <LoginForm />
+    </NuxtLayout>
+  </div>
 </template>
-
-<script lang="ts">
-  import { defineComponent } from 'vue'
-
-  export default defineComponent({
-    setup() {
-      return {}
-    },
-  })
-</script>
-
-<style scoped></style>
+<style scoped>
+  .user-body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

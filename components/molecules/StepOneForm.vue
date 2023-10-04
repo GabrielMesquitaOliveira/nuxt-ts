@@ -28,8 +28,10 @@
   import useDropdownStore from '~/store/dropdowns'
   import useUserStore from '~/store/user'
   import { mapActions, mapState } from 'pinia'
+  import { useStepsStore } from '~/store/steps'
 
   export default defineComponent({
+    name: 'StepOneForm',
     setup() {
       const dropdownsStore = useDropdownStore()
       return {
@@ -53,13 +55,15 @@
         'getOptions',
         'setOptions',
       ]),
+      ...mapActions(useStepsStore, [
+        'nextStep'
+      ]),
       generateToken() {
         event?.preventDefault()
         let cpf: number | void = this.convertCpf(this.typedCpf)
         if (typeof cpf != 'number') {
         } else if (this.checkCpf(cpf)) {
-          this.placeOptions()
-          navigateTo('')
+          this.placeOptions();
         }
       },
       convertCpf(cpf: string): number | void {
@@ -87,10 +91,8 @@
         }
       },
       placeOptions() {
-        this.setOptions('marcas', {
-          tenantID: this.tenantID,
-          tipoProduto: 'CARRO',
-        })
+        this.nextStep();
+        navigateTo("/simulation/user");
       },
     },
   })
